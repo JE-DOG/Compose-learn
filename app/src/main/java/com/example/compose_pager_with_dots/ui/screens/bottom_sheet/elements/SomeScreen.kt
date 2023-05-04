@@ -13,19 +13,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun SomeScreen(context:Context){
+fun SomeScreen(onClick: () -> Unit = {}){
 
     Box(
         modifier = Modifier
-            .height(500.dp)
-            .fillMaxWidth()
+            .fillMaxSize()
 
             .background(Color.Green),
         contentAlignment = Alignment.Center
     ){
 
             Button(onClick = {
-                Toast.makeText(context, "You are been manipulated.\nHAHAHHAHAH", Toast.LENGTH_SHORT).show()
+                onClick()
             }) {
                 Text(text = "Click me!")
             }
