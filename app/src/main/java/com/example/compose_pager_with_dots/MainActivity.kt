@@ -22,6 +22,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.compose_pager_with_dots.ui.screens.alert_dialog.AlertDialogLearn
+import com.example.compose_pager_with_dots.ui.screens.bottom_navigation.BottomNavigationLear
+import com.example.compose_pager_with_dots.ui.screens.bottom_navigation.model.BottomNavItem
 import com.example.compose_pager_with_dots.ui.screens.bottom_sheet.BottomSheet
 import com.example.compose_pager_with_dots.ui.screens.bottom_sheet.elements.SomeScreen
 import com.example.compose_pager_with_dots.ui.screens.bottom_sheet_dialog.BottomSheetDialog
@@ -37,17 +39,8 @@ class MainActivity : ComponentActivity() {
         setContent {
 
             val scope = rememberCoroutineScope()
-            val sheetState = rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
-            val openDialog = remember {
-                mutableStateOf(false)
-            }
 
             Compose_Pager_With_DotsTheme {
-                // A surface container using the 'background' color from the theme
-
-                if (openDialog.value){
-                    AlertDialogLearn()
-                }
 
                 Scaffold(
                     topBar = {
@@ -57,23 +50,16 @@ class MainActivity : ComponentActivity() {
                     },
                     content = {
 
-                        Text(
-                            modifier = Modifier
-                                .background(Color.LightGray)
-                                .border(1.dp, Color.Blue, RoundedCornerShape(12.dp))
-                                .fillMaxSize()
 
-                                .clickable {
-                                    openDialog.value = openDialog.value.not()
-                                },
-                            textAlign = TextAlign.Center,
-                            text = "Click me"
-                        )
 
                     },
                       bottomBar = {
 
-
+                        BottomNavigationLear(list = listOf(
+                            BottomNavItem("home","Home",R.drawable.ic_home),
+                            BottomNavItem("favorite","Favorite",R.drawable.ic_favorite),
+                            BottomNavItem("profile","Profile",R.drawable.ic_profile),
+                        ))
 
                     }
                 )
