@@ -28,7 +28,6 @@ import org.osmdroid.config.Configuration
 
 class MainActivity : ComponentActivity() {
 
-    @OptIn(ExperimentalMaterialApi::class)
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter", "MutableCollectionMutableState")
     override fun onCreate(savedInstanceState: Bundle?) {
         Configuration.getInstance().load(this,getSharedPreferences("OSM", Context.MODE_PRIVATE))
@@ -48,12 +47,8 @@ class MainActivity : ComponentActivity() {
 
                     },
                     content = {
-                        Box(modifier = Modifier
-                            .fillMaxSize(),
-                            contentAlignment = Alignment.Center
-                        ){
-                            Map()
-                        }
+
+                              Map()
 
                     },
                       bottomBar = {
