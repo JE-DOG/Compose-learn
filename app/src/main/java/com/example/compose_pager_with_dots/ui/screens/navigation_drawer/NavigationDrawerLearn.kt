@@ -13,9 +13,9 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun NavigationDrawerLearn() {
 
-    Box(modifier = Modifier.wrapContentWidth(), contentAlignment = Alignment.Center){
+    Box(modifier = Modifier, contentAlignment = Alignment.Center){
 
-        Text(text = "Hello there",Modifier.padding(50.dp))
+        Text(text = "Hello there")
 
     }
 
